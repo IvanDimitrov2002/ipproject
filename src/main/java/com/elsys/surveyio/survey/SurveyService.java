@@ -25,4 +25,11 @@ public class SurveyService {
         Survey newSurvey = modelMapper.map(surveyDto, Survey.class);
         return surveyRepository.save(newSurvey);
     }
+
+    public Survey update(Long id, CreateSurveyDto surveyDto){
+        ModelMapper modelMapper = new ModelMapper();
+        Survey survey = surveyRepository.getOne(id);
+        modelMapper.map(surveyDto, survey);
+        return surveyRepository.save(survey);
+    }
 }

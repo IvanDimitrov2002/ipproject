@@ -10,24 +10,13 @@ public class Answer {
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
     private String answer;
-    @ManyToOne
-    private Question question;
     private Integer votes = 0;
 
     public Answer(){}
 
     public Answer(String answer, Question question, Integer votes) {
         this.answer = answer;
-        this.question = question;
         this.votes = votes;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
     }
 
     public Integer getVotes() {

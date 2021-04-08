@@ -16,13 +16,19 @@ public class SurveyController {
 
     @GetMapping("/survey")
     public List<Survey> findAll(){
-        return  surveyService.findAll();
+        List<Survey> surveys = surveyService.findAll();
+        for(Survey survey : surveys){
+            survey.setPrivateId("");
+        }
+        return  surveys;
     }
 
     @GetMapping("/survey/{id}")
     public ResponseEntity<Survey> findOneById(@PathVariable("id") Long id){
         try {
-            return new ResponseEntity<>(surveyService.findOneById(id), HttpStatus.OK);
+            Survey survey = surveyService.findOneById(id);
+            survey.setPrivateId("");
+            return new ResponseEntity<>(survey, HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity(Map.of("message", "Survey not found"), HttpStatus.NOT_FOUND);
         }
@@ -31,5 +37,15 @@ public class SurveyController {
     @PostMapping("/survey")
     public Survey create(@RequestBody CreateSurveyDto surveyDto){
         return surveyService.create(surveyDto);
+    }
+
+    @PutMapping("/survey/{id}")
+    public ResponseEntity<Survey> update(@PathVariable("id") Long id, @RequestBody CreateSurveyDto surveyDto){
+        try {
+            return new ResponseEntity<>(surveyService.update(id, surveyDto), HttpStatus.OK);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity(Map.of("message", "Survey not found"), HttpStatus.NOT_FOUND);
+        }
     }
 }

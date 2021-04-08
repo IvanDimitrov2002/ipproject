@@ -12,25 +12,15 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String question;
-    @ManyToOne
-    private Survey survey;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="question_id")
     private Set<Answer> answers;
 
     public Question(){}
 
     public Question(String question, Survey survey, Set<Answer> answers) {
         this.question = question;
-        this.survey = survey;
         this.answers = answers;
-    }
-
-    public Survey getSurvey() {
-        return survey;
-    }
-
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
     }
 
     public Set<Answer> getAnswers() {
