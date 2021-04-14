@@ -1,18 +1,17 @@
 package com.elsys.surveyio.question;
 
+import com.elsys.surveyio.answer.CreateAnswerDto;
+
 import java.util.List;
 
 public class CreateQuestionDto {
     private String question;
-    private Long surveyId;
-    private List<Long> answersIds;
+    private List<CreateAnswerDto> answers;
 
     public CreateQuestionDto(){}
 
     public CreateQuestionDto(String question, Long surveyId, List<Long> answersIds) {
         this.question = question;
-        this.surveyId = surveyId;
-        this.answersIds = answersIds;
     }
 
     public String getQuestion() {
@@ -23,19 +22,11 @@ public class CreateQuestionDto {
         this.question = question;
     }
 
-    public Long getSurveyId() {
-        return surveyId;
+    public List<CreateAnswerDto> getAnswers() {
+        return answers;
     }
 
-    public void setSurveyId(Long surveyId) {
-        this.surveyId = surveyId;
-    }
-
-    public List<Long> getAnswersIds() {
-        return answersIds;
-    }
-
-    public void setAnswersIds(List<Long> answersIds) {
-        this.answersIds = answersIds;
+    public void setAnswers(List<CreateAnswerDto> answers) {
+        this.answers = answers;
     }
 }

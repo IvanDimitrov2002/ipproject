@@ -1,17 +1,18 @@
 package com.elsys.surveyio.survey;
 
 
+import com.elsys.surveyio.question.CreateQuestionDto;
 import com.elsys.surveyio.question.Question;
 
 import java.util.List;
 
 public class CreateSurveyDto {
     private String name;
-    private List<Question> questions;
+    private List<CreateQuestionDto> questions;
 
     public CreateSurveyDto(){}
 
-    public CreateSurveyDto(String name, List<Question> questions) {
+    public CreateSurveyDto(String name, List<CreateQuestionDto> questions) {
         this.name = name;
         this.questions = questions;
     }
@@ -24,11 +25,11 @@ public class CreateSurveyDto {
         this.name = name;
     }
 
-    public List<Question> getQuestions() {
+    public List<CreateQuestionDto> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Question> questions) {
+    public void setQuestions(List<CreateQuestionDto> questions) {
         this.questions = questions;
     }
 }

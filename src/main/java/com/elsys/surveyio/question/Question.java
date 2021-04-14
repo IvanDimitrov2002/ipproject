@@ -23,6 +23,10 @@ public class Question {
         this.answers = answers;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Set<Answer> getAnswers() {
         return answers;
     }

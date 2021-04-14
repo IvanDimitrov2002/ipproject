@@ -19,6 +19,10 @@ public class Answer {
         this.votes = votes;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Integer getVotes() {
         return votes;
     }
