@@ -2,7 +2,6 @@ package com.elsys.surveyio.survey;
 
 
 import com.elsys.surveyio.question.CreateQuestionDto;
-import com.elsys.surveyio.question.Question;
 
 import java.util.List;
 

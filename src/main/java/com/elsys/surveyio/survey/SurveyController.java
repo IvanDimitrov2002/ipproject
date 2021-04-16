@@ -45,7 +45,6 @@ public class SurveyController {
         try {
             return new ResponseEntity<>(surveyService.update(id, surveyDto), HttpStatus.OK);
         } catch (Exception e){
-            System.out.println(e.getMessage());
             return new ResponseEntity(Map.of("message", "Survey not found"), HttpStatus.NOT_FOUND);
         }
     }
