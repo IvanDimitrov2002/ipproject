@@ -9,13 +9,7 @@ public class CreateUserDto {
     private String password;
     private List<Survey> surveys;
 
-    public CreateUserDto(){};
-
-    public CreateUserDto(String username, String password, List<Survey> surveys) {
-        this.username = username;
-        this.password = password;
-        this.surveys = surveys;
-    }
+    public CreateUserDto(){}
 
     public String getUsername() {
         return username;

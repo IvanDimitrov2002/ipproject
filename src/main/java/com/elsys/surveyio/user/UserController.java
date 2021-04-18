@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 public class UserController {
     @Autowired
     private UserService userService;
@@ -22,10 +23,10 @@ public class UserController {
         return  users;
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<User> findOneById(@PathVariable("id") Long id){
+    @GetMapping("/user/{username}")
+    public ResponseEntity<User> findOneByUsername(@PathVariable("username") String username){
         try {
-            User user = userService.findOneById(id);
+            User user = userService.findOneByUsername(username);
             user.setPassword("");
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e){

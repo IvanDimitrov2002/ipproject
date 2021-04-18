@@ -9,11 +9,16 @@ public class CreateQuestionDto {
     private List<CreateAnswerDto> answers;
     private Boolean required = false;
     private Boolean multiple = false;
+    private String photo;
 
     public CreateQuestionDto(){}
 
-    public CreateQuestionDto(String question, Long surveyId, List<Long> answersIds) {
-        this.question = question;
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public Boolean getRequired() {

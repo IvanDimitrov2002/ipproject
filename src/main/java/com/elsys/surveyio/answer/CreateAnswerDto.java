@@ -3,9 +3,7 @@ package com.elsys.surveyio.answer;
 public class CreateAnswerDto {
     private String answer;
 
-    public CreateAnswerDto(String answer, Long questionId, Integer votes) {
-        this.answer = answer;
-    }
+    public CreateAnswerDto(){}
 
     public String getAnswer() {
         return answer;

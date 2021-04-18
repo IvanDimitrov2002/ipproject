@@ -1,15 +1,16 @@
 package com.elsys.surveyio.survey;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin
 public class SurveyController {
     @Autowired
     private SurveyService surveyService;
@@ -36,7 +37,7 @@ public class SurveyController {
 
 
     @PostMapping("/survey")
-    public Survey create(@RequestBody CreateSurveyDto surveyDto){
+    public Survey create(@RequestBody CreateSurveyDto surveyDto, @RequestParam("image") MultipartFile multipartFile){
         return surveyService.create(surveyDto);
     }
 

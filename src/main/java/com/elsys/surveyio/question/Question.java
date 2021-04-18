@@ -16,8 +16,17 @@ public class Question {
     private Set<Answer> answers;
     private Boolean required = false;
     private Boolean multiple = false;
+    private String photo;
 
     public Question(){}
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     public Boolean getRequired() {
         return required;

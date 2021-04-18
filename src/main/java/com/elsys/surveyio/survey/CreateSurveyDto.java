@@ -13,11 +13,6 @@ public class CreateSurveyDto {
 
     public CreateSurveyDto(){}
 
-    public CreateSurveyDto(String name, List<CreateQuestionDto> questions) {
-        this.name = name;
-        this.questions = questions;
-    }
-
     public Long getUserId() {
         return userId;
     }
