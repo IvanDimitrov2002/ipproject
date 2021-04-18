@@ -19,17 +19,6 @@ public class User {
 
     public User(){};
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(Set<Survey> surveys, String username, String password) {
-        this.surveys = surveys;
-        this.username = username;
-        this.password = password;
-    }
-
     public Long getId() {
         return id;
     }

@@ -24,12 +24,16 @@ public class Survey {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="survey_id")
     private Set<Question> questions;
+    private Boolean open = true;
 
     public Survey() {}
 
-    public Survey(String name, Set<Question> questions) {
-        this.name = name;
-        this.questions = questions;
+    public Boolean getOpen() {
+        return open;
+    }
+
+    public void setOpen(Boolean open) {
+        this.open = open;
     }
 
     public Set<Question> getQuestions() {

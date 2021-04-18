@@ -1,7 +1,6 @@
 package com.elsys.surveyio.question;
 
 import com.elsys.surveyio.answer.Answer;
-import com.elsys.surveyio.survey.Survey;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -15,12 +14,25 @@ public class Question {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="question_id")
     private Set<Answer> answers;
+    private Boolean required = false;
+    private Boolean multiple = false;
 
     public Question(){}
 
-    public Question(String question, Survey survey, Set<Answer> answers) {
-        this.question = question;
-        this.answers = answers;
+    public Boolean getRequired() {
+        return required;
+    }
+
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    public Boolean getMultiple() {
+        return multiple;
+    }
+
+    public void setMultiple(Boolean multiple) {
+        this.multiple = multiple;
     }
 
     public Long getId() {

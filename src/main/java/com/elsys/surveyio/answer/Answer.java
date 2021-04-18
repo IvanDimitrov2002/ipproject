@@ -14,11 +14,6 @@ public class Answer {
 
     public Answer(){}
 
-    public Answer(String answer, Question question, Integer votes) {
-        this.answer = answer;
-        this.votes = votes;
-    }
-
     public Long getId() {
         return id;
     }
