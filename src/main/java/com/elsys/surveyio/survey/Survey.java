@@ -1,6 +1,8 @@
 package com.elsys.surveyio.survey;
 
 import com.elsys.surveyio.question.Question;
+import com.elsys.surveyio.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -22,11 +24,21 @@ public class Survey {
     private String privateId;
     private String name;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="survey_id")
     private Set<Question> questions;
+    @ManyToOne()
+    @JsonBackReference
+    private User user;
     private Boolean open = true;
 
     public Survey() {}
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Boolean getOpen() {
         return open;

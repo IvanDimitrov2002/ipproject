@@ -12,7 +12,6 @@ public class Question {
     private Long id;
     private String question;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="question_id")
     private Set<Answer> answers;
     private Boolean required = false;
     private Boolean multiple = false;

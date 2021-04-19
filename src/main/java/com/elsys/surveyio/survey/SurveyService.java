@@ -26,19 +26,15 @@ public class SurveyService {
         return surveyRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(id.toString()));
     }
 
+    public Survey findOneByPrivateId(String privateId){
+        return surveyRepository.findByPrivateId(privateId).orElseThrow(() -> new EntityNotFoundException(privateId));
+    }
+
     public Survey create(CreateSurveyDto surveyDto){
         ModelMapper modelMapper = new ModelMapper();
         Survey newSurvey = modelMapper.map(surveyDto, Survey.class);
         if(surveyDto.getUserId() != null){
-            User user = userRepository.findById(surveyDto.getUserId()).orElse(null);
-            if(user != null){
-                Set<Survey> surveys = user.getSurveys();
-                surveys.add(newSurvey);
-                user.setSurveys(surveys);
-                userRepository.save(user);
-                return newSurvey;
-            }
-
+            userRepository.findById(surveyDto.getUserId()).ifPresent(newSurvey::setUser);
         }
         return surveyRepository.save(newSurvey);
     }
