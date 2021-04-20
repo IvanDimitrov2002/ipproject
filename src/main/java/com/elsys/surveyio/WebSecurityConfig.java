@@ -57,7 +57,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.cors().and().csrf().disable()
                 // dont authenticate this particular request
                 .authorizeRequests().antMatchers("/login", "/").permitAll().
-                antMatchers(HttpMethod.GET,  "/survey", "/survey/{id}", "/user").permitAll().
+                antMatchers(HttpMethod.GET,  "/survey", "/survey/{id}", "/user", "/vote/{id}").permitAll().
                 antMatchers(HttpMethod.POST, "/survey", "/vote", "/user").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().
