@@ -37,7 +37,9 @@ public class UserService {
 
     public User update(Long id, CreateUserDto userDto){
         ModelMapper modelMapper = new ModelMapper();
-        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        if(userDto.getPassword() != null){
+            userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        }
         User user = userRepository.getOne(id);
         modelMapper.map(userDto, user);
         return  userRepository.save(user);
